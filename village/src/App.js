@@ -2,11 +2,27 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import SmurfUpdateForm from './components/SmurfUpdateForm';
+
+const NavbarDiv = styled.div`
+  width: 30%;
+  background-color: lightblue;
+  margin: auto;
+  height: 50px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`
+const BackDiv = styled.div`
+  color: green;
+  text-decoration: none;
+`
 
 class App extends Component {
   constructor(props) {
@@ -88,28 +104,26 @@ class App extends Component {
         console.log(err)
       })
   }
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+
   render() {
     return (
       <div className="App">
-        <div>
-        <NavLink 
-          exact to="/" 
-          activeStyle={{
-            fontWeight: "bold", 
-            color: "red"}}>
-          Back to list
-        </NavLink>
-        <NavLink 
-          to="/smurf-form" 
-          activeStyle={{
-            fontWeight: "bold", 
-            color: "red"}}>
-          Add a Smurf
-        </NavLink>
-        </div>
+        <NavbarDiv>
+          <NavLink 
+            exact to="/" 
+            activeStyle={{
+              fontWeight: "bold", 
+              color: "red",}}>
+            <div>Back to list</div>
+          </NavLink>
+          <NavLink 
+            to="/smurf-form" 
+            activeStyle={{
+              fontWeight: "bold", 
+              color: "red"}}>
+            <div>Add a Smurf</div>
+          </NavLink>
+        </NavbarDiv>
         <Route 
           path="/smurf-form" 
           render={() => (<SmurfForm addSmurf={this.addSmurf}/>)}
