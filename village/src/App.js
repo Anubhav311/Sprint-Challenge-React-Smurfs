@@ -19,8 +19,7 @@ const NavbarDiv = styled.div`
   justify-content: space-around;
   align-items: center;
 `
-const BackDiv = styled.div`
-  color: green;
+const BackDiv = styled(NavLink)`
   text-decoration: none;
 `
 
@@ -109,21 +108,21 @@ class App extends Component {
     return (
       <div className="App">
         <NavbarDiv>
-          <NavLink 
+          <BackDiv 
             exact to="/" 
             activeStyle={{
               fontWeight: "bold", 
               color: "red",
               underline: "none"}}>
             <div>Back to list</div>
-          </NavLink>
-          <NavLink 
+          </BackDiv>
+          <BackDiv 
             to="/smurf-form" 
             activeStyle={{
               fontWeight: "bold", 
               color: "red"}}>
             <div>Add a Smurf</div>
-          </NavLink>
+          </BackDiv>
         </NavbarDiv>
         <Route 
           path="/smurf-form" 
