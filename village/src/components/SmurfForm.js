@@ -1,4 +1,28 @@
 import React, { Component } from 'react';
+import styled, { css } from 'styled-components';
+
+const FormTag = styled.form`
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 25%;
+`
+const InputTag = styled.input`
+  margin-top: 20px;
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  padding: 3px;
+`
+
+const ButtonTag = styled.button`
+  width: 200px;
+  height: 30px;
+  margin: 30px auto;
+  border-radius: 5px;
+  background-color: lightblue;
+  border: none;
+`
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -29,27 +53,27 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
-          <input
+        <FormTag onSubmit={this.addSmurf}>
+          <InputTag
             onChange={this.handleInputChange}
             placeholder="name"
             value={this.state.name}
             name="name"
           />
-          <input
+          <InputTag
             onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
           />
-          <input
+          <InputTag
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
-        </form>
+          <ButtonTag type="submit">Add to the village</ButtonTag>
+        </FormTag>
       </div>
     );
   }

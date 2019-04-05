@@ -113,7 +113,8 @@ class App extends Component {
             exact to="/" 
             activeStyle={{
               fontWeight: "bold", 
-              color: "red",}}>
+              color: "red",
+              underline: "none"}}>
             <div>Back to list</div>
           </NavLink>
           <NavLink 
