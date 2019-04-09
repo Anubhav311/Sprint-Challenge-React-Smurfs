@@ -24,7 +24,7 @@ const ButtonTag = styled.button`
   border: none;
 `
 
-class SmurfForm extends Component {
+class SmurfUpdateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,9 +34,9 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
+  updateSmurf = event => {
     event.preventDefault();
-    this.props.addSmurf(this.state)
+    this.props.updateSmurf(this.state)
 
     this.setState({
       name: '',
@@ -53,7 +53,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <FormTag onSubmit={this.addSmurf}>
+        <FormTag onSubmit={this.updateSmurf}>
           <InputTag
             onChange={this.handleInputChange}
             placeholder="name"
@@ -72,11 +72,11 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <ButtonTag type="submit">Add to the village</ButtonTag>
+          <ButtonTag type="submit">Update Smurf</ButtonTag>
         </FormTag>
       </div>
     );
   }
 }
 
-export default SmurfForm;
+export default SmurfUpdateForm;
